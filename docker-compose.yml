@@ -43,7 +43,8 @@ services:
       - two-tier-nt
 
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
         
 
     healthcheck:
