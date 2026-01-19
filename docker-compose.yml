@@ -43,15 +43,15 @@ services:
       - two-tier-nt
 
     depends_on:
-      mysql:
-        condition: service_healthy
+      - mysql
+        
 
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:5000/health || exit 1"]
       interval: 10s
       timeout: 5s
-      retries: 5
-      start_period: 60s
+      retries: 10
+      start_period: 90s
 
 volumes:
   mysql_data:
